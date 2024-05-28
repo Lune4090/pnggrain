@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "metaData": {
+    "url": "https://github.com/jangko/nimPNG",
+    "downloadMethod": "git",
+    "vcsRevision": "7230cdf19f8acfe3c310e1b5bd29787685173bf5",
+    "files": [
+      "/nimPNG/filters.nim",
+      "/nimPNG.nim",
+      "/nimPNG/utils.nim",
+      "/nimPNG.nimble",
+      "/nimPNG/buffer.nim",
+      "/nimPNG/nimz.nim",
+      "/nimPNG/results.nim"
+    ],
+    "binaries": [],
+    "specialVersions": [
+      "0.3.6"
+    ]
+  }
+}
