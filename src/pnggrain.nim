@@ -139,8 +139,10 @@ func getBinarizedImg(self: Grid2D[bool], a: uint8 = 255'u8): Grid2D[seq[uint8]] 
 # Test
 #######################################
 proc main() =
-  let pngres = loadPNG32(seq[uint8], "/home/lune/Pictures/forest.png")
-  if pngres.isOk:
+  let pngres = loadPNG32(seq[uint8], "/home/lune/Pictures/test.png")
+  if pngres.isErr:
+    echo "input file is invalid!"
+  else:
     let ares = getPngGrid(pngres)
     if ares.isErr():
       echo ares.error
@@ -151,9 +153,9 @@ proc main() =
       # echo len(a.pts)
 
       let config = ConfigBinarization(
-        channel: [false, true, false, false],
-        exploit: [Under, Over, Over, Over],
-        threshold: [200, 100, 90, 90],
+        channel: [true, true, false, false],
+        exploit: [Under, Under, Over, Over],
+        threshold: [20, 20, 90, 90],
       )
       let bin = a.getBinaryFilter(config)
       if bin.isErr():
@@ -195,7 +197,8 @@ proc main() =
           echo len(grainsSorted[i])
 
         let png = ans.getBinarizedImg(a = 255'u8)
-        echo savePNG32("/home/lune/Pictures/forest_bin.png", png.getPng(), png.xlen, png.ylen)
+        echo savePNG32("/home/lune/Pictures/test_bin.png", png.getPng(), png.xlen, png.ylen)
+        echo "hoge"
 
 main()
 
