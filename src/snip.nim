@@ -1,9 +1,21 @@
-import math, results
+import math, macros, sugar
+import results
+
+########################################
+# higher-order func (not proc)の短縮記法
+# プラグマ見づらいので... 
+########################################
+
+template `>>`(p, b: untyped): untyped =
+  (p {.noSideEffect.} -> b)
+
+########################################
 
 ########################################
 # Grid types and their utilities
 # おせろ作った時に、こういうの欲しかったので自作
 # method-like(第一引数名: self)はプロパティの延長とみなしcamelCase, それ以外のfuncはsnake_caseで実装
+########################################
 
 type
   Grid2D*[T] = object
